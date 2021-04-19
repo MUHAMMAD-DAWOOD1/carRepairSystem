@@ -2,6 +2,58 @@
 ### Project Description
 The project aims to develop an interactive and functional web and android application for a local automobile repair shop. The application will allow customers to
 have access and book a variety of services (towing, oil change, tire changes, regular maintenance, car repairs etc.) which are offered by qualified technicians working at the company. The technicians will be able to view their upcoming appointments and the administrator's assistant will be able to moderate, manage the shop's appointments and technicnan work schedule through the platform. This project is a part of ECSE321 project.
+
+# Web Application
+### Landing Page
+![Landing Page](demo/web/landing.gif)
+
+### Sign Up Page 
+- Customer can sign up on this page. Mechanic’s account can only be created by admin.
+![signup Page](demo/web/sign_up.gif)
+
+## User as Administrator 
+### Admin Dashboard Page
+Once admin logs in, they are navigated to admin dashboard page.
+They can do the followings:
+- View upcoming appointments
+- Delete an appointment
+- Edit appointment status
+![Admin dashboard Page](demo/web/admin_dashboard.gif)
+
+### Mechanic Management Page
+In this page admin can do the followings
+- View mechanics
+- Edit mechanic info
+- Add new mechanic
+- Delete mechanic
+- Search mechanic by name
+
+![Admin mechanic Page](demo/web/admin_mechacnis.gif)
+
+### Customer Management Page
+In this page admin can do the followings
+- View customers
+- Edit customer info
+- Add car to a customer
+- Book appointment to a customer (this change is reflected on both admin and customer dashboard page)
+- Add new customer
+- Search customer by name
+- Delete customer
+
+![Admin mechanic Page](demo/web/admin_customer.gif)
+
+## User as Customer 
+### Customer Dashboard Page
+User as Mechanic
+
+
+
+Mobile Application
+
+
+
+
+### Mobile Application
 ### Team Members
 - Annabelle Dion
 - Sia Ham
