@@ -27,7 +27,6 @@ In this page admin can do the followings
 - Add new mechanic
 - Delete mechanic
 - Search mechanic by name
-
 ![Admin mechanic Page](demo/web/admin_mechanics.gif)
 
 ### Customer Management Page
@@ -68,6 +67,16 @@ In this page customer information is automatically filled up in each section and
 ![customer edit profile Page](demo/web/customer_payment.gif)
 
 ### User as Mechanic
+### Customer Dashboard Page
+Once a mechanic logs in, the mechanic is navigated to the mechanic dashboard page.
+They can do the followings:
+- View upcoming appointments
+- Edit appointment status
+- Delete an appointment
+![mechanic dashboard Page](demo/web/mechanic_dashboard.gif)
+### Edit Profile Page
+In this page mechanic can edit their information
+![mechanic edit profile Page](demo/web/mechanic_edit_profile.gif)
 
 
 
