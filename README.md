@@ -81,30 +81,35 @@ On this page, the mechanic can edit their information
 
 # Mobile Application
 ### Mobile android application is for the customers only, and thie application is interactive with the web application and vice versa
-### Log In Page
-![mechanic edit profile Page](demo/android/android_customer_login.gif)
 
 ### Sign Up page
-![mechanic edit profile Page](demo/android/android_customer_singup.gif)
+Once a new customer signs up on mobile app, the added new customer account is also shown in admin customer mangement page and customer dashboard page on the web application. (Demo only shows admin web page)
+![mobile customer signup Page](demo/android/android_customer_singup.gif)
+
+### Log In Page
+![mobile login Page](demo/android/android_customer_login.gif)
 
 ### Customer: View Appointment Page (Dashboard Page)
-
+Once a customer logs in or signs up, the customer is navigated to the view appointment page. 
+They can see the list of appointments they have. Once they click an appointment they can see the details of that appointment.
 ![mechanic edit profile Page](demo/android/android_customer_view_app.gif)
 
 ### Customer: Book Appointment Page
+The customer can select date, time, mechanic, service, car, and book appointment. They can also add a car.
+This change is also shown in admin and customer page on the web application. (Demo only shows the customer dashboard web page)
 ![mechanic edit profile Page](demo/android/android_customer_boo_app.gif)
 
 
 ### Customer: Edit Profile Page
+The customer can edit their inforamtion. This change is also shown in admin and customer page on the web application. (Demo only shows the customer dashboard web page)
 ![mechanic edit profile Page](demo/android/android_customer_edit_profile.gif)
 
 
 ### Customer: Make Payment Page
+The customer can make payment. By default, each section is filled up with customer given information but the customer also can change this. They can also select the payment method (credit or debit)
 ![mechanic edit profile Page](demo/android/android_customer_make_payment.gif)
 
 
-
-### Mobile Application
 ### Team Members
 - Annabelle Dion
 - Sia Ham
