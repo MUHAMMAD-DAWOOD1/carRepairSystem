@@ -115,8 +115,4 @@ The customer can make payment. By default, each section is filled up with custom
  - [RESTful Service Endpoints](https://github.com/McGill-ECSE321-Winter2021/project-group-07/wiki/RESTful-Service-Endpoints)
  - [Software Quality Assurance Plan and Report](https://github.com/McGill-ECSE321-Winter2021/project-group-07/wiki/Software-Quality-Assurance-Plan-and-Report)
  - [Architecture Model - Block Diagram](https://github.com/McGill-ECSE321-Winter2021/project-group-07/wiki/Architecture-Model)
- - [Figma](https://www.figma.com/file/WGQveChTZA6qFVNFDvxh8g/Untitled?node-id=0%3A1)
- - [User Documentation](https://github.com/McGill-ECSE321-Winter2021/project-group-07/wiki/User-Documentation)
-
-
 
