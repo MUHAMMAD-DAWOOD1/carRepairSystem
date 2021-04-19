@@ -1,7 +1,6 @@
 
 ### Project Description
-The project aims to develop an interactive and functional web and android application for a local automobile repair shop. The application will allow customers to
-have access and book a variety of services (towing, oil change, tire changes, regular maintenance, car repairs etc.) which are offered by qualified technicians working at the company. The technicians will be able to view their upcoming appointments and the administrator's assistant will be able to moderate, manage the shop's appointments and technicnan work schedule through the platform. This project is a part of ECSE321 project.
+The project aims to develop an interactive and functional web and android application for a local automobile repair shop. The application will allow customers to have access and book a variety of services (towing, oil change, tire changes, regular maintenance, car repairs, etc.) which are offered by qualified technicians/mechanics working at the company. The technicians will be able to view their upcoming appointments and the administrator's assistant will be able to moderate, manage the shop's appointments and technician work schedule through the platform. This project is an updated/advanced version of a part of the ECSE321 project.
 
 # Web Application
 ### Landing Page
@@ -13,7 +12,7 @@ have access and book a variety of services (towing, oil change, tire changes, re
 
 ## User as Administrator 
 ### Admin Dashboard Page
-Once admin logs in, they are navigated to admin dashboard page.
+Once the admin logs in, they are navigated to the admin dashboard page.
 They can do the followings:
 - View upcoming appointments
 - Delete an appointment
@@ -21,20 +20,20 @@ They can do the followings:
 ![Admin dashboard Page](demo/web/admin_dashboard.gif)
 
 ### Mechanic Management Page
-In this page admin can do the followings
+On this page, the  admin can do the followings
 - View mechanics
 - Edit mechanic info
-- Add new mechanic
+- Add a new mechanic
 - Delete mechanic
-- Search mechanic by name
+- Search mechanic by the name
 ![Admin mechanic Page](demo/web/admin_mechanics.gif)
 
 ### Customer Management Page
-In this page admin can do the followings
+On this page, the admin can do the followings
 - View customers
 - Edit customer info
-- Add car to a customer
-- Book appointment to a customer (this change is reflected on both admin and customer dashboard page)
+- Add a car to a customer
+- Book an appointment for a customer (this change is reflected on both the admin and customer dashboard page)
 - Add new customer
 - Search customer by name
 - Delete customer
@@ -43,16 +42,16 @@ In this page admin can do the followings
 
 ## User as Customer 
 ### Customer Dashboard Page
-Once a customer logs in, the customer is navigated to customer dashboard page.
+Once a customer logs in, the customer is navigated to the customer dashboard page.
 They can do the followings:
 - View upcoming appointments
 - Delete an appointment
 ![customer dashboard Page](demo/web/customer_dashboard.gif)
 ### Edit Profile Page
-In this page customer can edit their information
+On this page, the customer can edit their information
 ![customer edit profile Page](demo/web/customer_edit_profile.gif)
 ### Book Appointment Page
-In this page customer can do the followings:
+On this page, the customer can do the followings:
 - select date
 - select time
 - select service
@@ -63,7 +62,7 @@ In this page customer can do the followings:
 - book appointment (this change is reflected on both customer and admin dashboard page)
 ![customer edit profile Page](demo/web/customer_book_appointment.gif)
 ### Make Payment Page
-In this page customer information is automatically filled up in each section and the customer can make payment
+On this page, the customer information is automatically filled up in each section and the customer can make payment
 ![customer edit profile Page](demo/web/customer_payment.gif)
 
 ### User as Mechanic
@@ -75,7 +74,7 @@ They can do the followings:
 - Delete an appointment
 ![mechanic dashboard Page](demo/web/mechanic_dashboard.gif)
 ### Edit Profile Page
-In this page mechanic can edit their information
+On this page, the mechanic can edit their information
 ![mechanic edit profile Page](demo/web/mechanic_edit_profile.gif)
 
 
