@@ -11,7 +11,7 @@ The project aims to develop an interactive and functional web and android applic
 ![signup Page](demo/web/sign_up.gif)
 
 ## User as Administrator 
-### Admin Dashboard Page
+### Admin: Dashboard Page
 Once the admin logs in, they are navigated to the admin dashboard page.
 They can do the followings:
 - View upcoming appointments
@@ -19,7 +19,7 @@ They can do the followings:
 - Edit appointment status
 ![Admin dashboard Page](demo/web/admin_dashboard.gif)
 
-### Mechanic Management Page
+### Admin: Mechanic Management Page
 On this page, the  admin can do the followings
 - View mechanics
 - Edit mechanic info
@@ -28,7 +28,7 @@ On this page, the  admin can do the followings
 - Search mechanic by the name
 ![Admin mechanic Page](demo/web/admin_mechanics.gif)
 
-### Customer Management Page
+### Admin: Customer Management Page
 On this page, the admin can do the followings
 - View customers
 - Edit customer info
@@ -41,16 +41,16 @@ On this page, the admin can do the followings
 ![Admin mechanic Page](demo/web/admin_customers.gif)
 
 ## User as Customer 
-### Customer Dashboard Page
+### Customer: Dashboard Page
 Once a customer logs in, the customer is navigated to the customer dashboard page.
 They can do the followings:
 - View upcoming appointments
 - Delete an appointment
 ![customer dashboard Page](demo/web/customer_dashboard.gif)
-### Edit Profile Page
+### Customer: Edit Profile Page
 On this page, the customer can edit their information
 ![customer edit profile Page](demo/web/customer_edit_profile.gif)
-### Book Appointment Page
+### Customer: Book Appointment Page
 On this page, the customer can do the followings:
 - select date
 - select time
@@ -61,26 +61,46 @@ On this page, the customer can do the followings:
 - add notes
 - book appointment (this change is reflected on both customer and admin dashboard page)
 ![customer edit profile Page](demo/web/customer_book_appointment.gif)
-### Make Payment Page
+### Customer: Make Payment Page
 On this page, the customer information is automatically filled up in each section and the customer can make payment
 ![customer edit profile Page](demo/web/customer_payment.gif)
 
-### User as Mechanic
-### Customer Dashboard Page
+## User as Mechanic
+### Mechanic: Dashboard Page
 Once a mechanic logs in, the mechanic is navigated to the mechanic dashboard page.
 They can do the followings:
 - View upcoming appointments
 - Edit appointment status
 - Delete an appointment
 ![mechanic dashboard Page](demo/web/mechanic_dashboard.gif)
-### Edit Profile Page
+### Mechanic: Edit Profile Page
 On this page, the mechanic can edit their information
 ![mechanic edit profile Page](demo/web/mechanic_edit_profile.gif)
 
 
 
 # Mobile Application
+### Mobile android application is for the customers only, and thie application is interactive with the web application and vice versa
+### Log In Page
+![mechanic edit profile Page](demo/android/android_customer_login.gif)
 
+### Sign Up page
+![mechanic edit profile Page](demo/android/android_customer_singup.gif)
+
+### Customer: View Appointment Page (Dashboard Page)
+
+![mechanic edit profile Page](demo/android/android_customer_view_app.gif)
+
+### Customer: Book Appointment Page
+![mechanic edit profile Page](demo/android/android_customer_boo_app.gif)
+
+
+### Customer: Edit Profile Page
+![mechanic edit profile Page](demo/android/android_customer_edit_profile.gif)
+
+
+### Customer: Make Payment Page
+![mechanic edit profile Page](demo/android/android_customer_make_payment.gif)
 
 
 
