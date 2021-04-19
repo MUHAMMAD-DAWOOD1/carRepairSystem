@@ -55,6 +55,7 @@
         android:layout_marginTop="160dp"
         android:text="Start Time:"
         tools:layout_editor_absoluteX="172dp"
-        tools:layout_editor_absoluteY="188dp" />
+        tools:layout_editor_absoluteY="188dp"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

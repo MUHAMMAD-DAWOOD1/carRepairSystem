@@ -69,7 +69,6 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
     private String error = null;
     private FloatingActionButton addCarBtn;
-    private Button addTimeSlot;
     private Button bookAppBtn;
     private PopupMenu menu;
     private PopupMenu menuCar;
@@ -78,6 +77,11 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
     private ArrayList<String> mechNames = new ArrayList<>();
     private ArrayList<String> carIds = new ArrayList<>();
     private ArrayList<String> carTypes = new ArrayList<>();
+    private static String selectedAppointmentInfos = "";
+    private static ArrayList<String> appointmentInfosList = new ArrayList<String>();
+    private static String viewAppointmentInfo = "";
+    private static String selectedMech="";
+    private static ArrayList<String> selectedMechList = new ArrayList<String>();
 
     private ArrayList<String> appointments = new ArrayList<String>();
 
@@ -128,7 +132,6 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
         /*variables for book appointment */
         addCarBtn = (FloatingActionButton) findViewById(R.id.addCarBtn);
         bookAppBtn = (Button) findViewById(R.id.bookAppBtn);
-        addTimeSlot = (Button) findViewById(R.id.addTimeSlot);
 
         //date picker & time picker
         tvTimer2 = findViewById(R.id.tv_timer2);
@@ -139,13 +142,6 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
         day = calendar.get(Calendar.DAY_OF_MONTH);
 
 
-        ////////bottom menu bar////////////
-        toHome(findViewById(R.id.bookAppointment));
-        toEditProfile(findViewById(R.id.editProfile));
-        bye(findViewById(R.id.logout));
-        toPayment(findViewById(R.id.payment));
-
-
         ////////////////// BOOK APPOINTMENT//////////////////
 
         /*add car methods*/
@@ -154,13 +150,15 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
             public void onClick(View view) {
                 //display popup window
                 LayoutInflater layoutInflater = LayoutInflater.from(context);
-                View promptView = layoutInflater.inflate(R.layout.prompts, null);
+                View promptView = layoutInflater.inflate(R.layout.prompts_add_car, null);
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
                 alertDialogBuilder.setView(promptView);
 
                 EditText carInput = (EditText) promptView.findViewById(R.id.carTypeInput);
                 EditText WinterTiresInput = (EditText) promptView.findViewById(R.id.WinterTiresInput);
                 EditText NumberofKilometersInput = (EditText) promptView.findViewById(R.id.NumberofKilometersInput);
+                EditText Notes = (EditText) promptView.findViewById(R.id.Notes);
+
 
                 // setup a dialog window
                 alertDialogBuilder
@@ -174,6 +172,7 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
                                 request = request.concat("?carType=" + carInput.getText().toString());
                                 request = request.concat("&winterTires=" + WinterTiresInput.getText().toString());
                                 request = request.concat("&numOfKilometers=" + NumberofKilometersInput.getText().toString());
+                                request = request.concat("&note=" + Notes.getText().toString());
 
                                 HttpUtils.post("/car/" + request, requestParams, new JsonHttpResponseHandler() {
                                     @Override
@@ -275,6 +274,35 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
                                 } catch (ParseException e) {
                                     e.printStackTrace();
                                 }
+
+                                error = "";
+                                String request = "";
+                                request = request.concat(startTime);
+                                request = request.concat("?endTime=" + endTime);
+
+                                HttpUtils.post("/timeslot/" + request, new RequestParams(), new JsonHttpResponseHandler() {
+                                    @Override
+                                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                                        try {
+                                            timeSlotId = response.getString("id");
+                                            Toast toast = Toast.makeText(context, "Time Slot Added!", duration);
+                                            toast.show();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                                        try {
+                                            error += errorResponse.get("message").toString();
+                                        } catch (JSONException e) {
+                                            error += e.getMessage();
+                                        }
+                                        refreshErrorMessage();
+                                    }
+                                });
+
                             }
                         }, 24, 0, true
                 );
@@ -285,41 +313,8 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
         });
 
 
-        //create timeslot
-        addTimeSlot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                error = "";
-                String request = "";
-                request = request.concat(startTime);
-                request = request.concat("?endTime=" + endTime);
-
-                HttpUtils.post("/timeslot/" + request, new RequestParams(), new JsonHttpResponseHandler() {
-                    @Override
-                    public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                        try {
-                            timeSlotId = response.getString("id");
-                            Toast toast = Toast.makeText(context, "Time Slot Added!", duration);
-                            toast.show();
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-                        try {
-                            error += errorResponse.get("message").toString();
-                        } catch (JSONException e) {
-                            error += e.getMessage();
-                        }
-                        refreshErrorMessage();
-                    }
-                });
-            }
-        });
-
         //book appointment method
+//book appointment method
         bookAppBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -386,12 +381,11 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
         updateView(); //update main page view
 
         //////////// BOTTOM NAV BAT MENU/////////
-        setInfo(findViewById(R.id.cNameText));
+        setInfo();
         viewCrendentials(findViewById(R.id.cNameText));
         updateProfile(findViewById(R.id.cNameText));
         toBook(findViewById(R.id.bookAppointmentView));
         toEditProfile(findViewById(R.id.editProfileView));
-        bye(findViewById(R.id.logout));
         toPayment(findViewById(R.id.makePaymentView));
         toHome(findViewById(R.id.homePageView));
 
@@ -411,7 +405,6 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 for (int i = 0; i < response.length(); i++) {
                     try {
-                        /*set popup menu item for mechanic list*/
                         /*set popup menu item for mechanic list*/
                         mechIds.add(response.getJSONObject(i).getString("id"));
                         String name = response.getJSONObject(i).getString("name");
@@ -529,7 +522,7 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
             Toast.makeText(this, carTypes.get(3) + " selected", duration).show();
             carId = carIds.get(3).toString();
         } else if (item.getItemId() == R.id.CarRepair) {
-            Toast.makeText(this, "CarRepair selected",duration).show();
+            Toast.makeText(this, "CarRepair selected", duration).show();
             service = "CarRepair";
         } else if (item.getItemId() == R.id.OilChange) {
             Toast.makeText(this, "OilChange selected", duration).show();
@@ -550,7 +543,7 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
             Toast.makeText(this, "Towing selected", duration).show();
             service = "Towing";
         } else if (item.getItemId() == R.id.CarInspection) {
-            Toast.makeText(this, "CarInspection selected",duration).show();
+            Toast.makeText(this, "CarInspection selected", duration).show();
             service = "CarInspection";
         } else if (item.getItemId() == R.id.Other) {
             Toast.makeText(this, "Other selected", duration).show();
@@ -561,11 +554,14 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
 
     ///////////CUSTOMER PROFILE////////////////////
-    public void setInfo(View v) {
-        tv_email = (TextView) findViewById(R.id.email);
-        tv_address = (TextView) findViewById(R.id.address);
-        tv_credit = (TextView) findViewById(R.id.credit);
-        tv_debit = (TextView) findViewById(R.id.debit);
+    public void setInfo() {
+        EditText payment_name = (EditText) findViewById(R.id.payment_name);
+        EditText payment_email = (EditText) findViewById(R.id.payment_email);
+        EditText payment_address = (EditText) findViewById(R.id.payment_address);
+        EditText payment_credit = (EditText) findViewById(R.id.payment_credit);
+        EditText payment_debit = (EditText) findViewById(R.id.payment_debit);
+        EditText payment_amount = (EditText) findViewById(R.id.payment_amount);
+
 
         RequestParams requestParams = new RequestParams();
 
@@ -573,10 +569,14 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
-                    tv_email.setText(response.getString("email"));
-                    tv_address.setText(response.getString("address"));
-                    tv_credit.setText(response.getString("creditHash"));
-                    tv_debit.setText(response.getString("debitHash"));
+                    //display defualt(current) customer credentials
+                    payment_name.setText("Name: "+ response.getString("name"));
+                    payment_email.setText("Email: "+response.getString("email"));
+                    payment_address.setText("Address: "+response.getString("address"));
+                    payment_credit.setText("Credit: card ends with XXX "+response.getString("creditHash").substring(response.getString("creditHash").length()-4));
+                    payment_debit.setText("Debit: card ends with XXX "+response.getString("debitHash").substring(response.getString("debitHash").length()-4));
+                    payment_amount.setText("Amount: "+"50$");
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -589,6 +589,7 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 } catch (JSONException e) {
                     error += e.getMessage();
                 }
+
             }
         });
     }
@@ -719,22 +720,37 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
 
 
 ////////VIEW APPOINTMENTS///////////////
-
+    ArrayList<String> appIds = new ArrayList<>();
     public void updateView() {
         /*get all appointment list*/
         HttpUtils.get("appointments/" + customerId.toString(), new RequestParams(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                appIds = new ArrayList<>();
                 appointments = new ArrayList<String>();
-
+                appointmentInfosList = new ArrayList<>();
+                selectedMechList =  new ArrayList<>();
+                appointments.add("Service          Start Time");
                 for (int i = 0; i < response.length(); i++) {
                     try {
                         String toAdd = "";
-                        String ID = response.getJSONObject(i).getString("id");
-                        toAdd = toAdd.concat(ID + "    " + "Start: ");
+                        viewAppointmentInfo="";
+                        String Service = response.getJSONObject(i).getJSONArray("services").getJSONObject(0).getString("serviceType");
+                        String Status = response.getJSONObject(i).getString("status");
+
+                        toAdd = toAdd.concat(Service + "        ");
                         JSONObject timeSlot = response.getJSONObject(i).getJSONObject("timeSlot");
-                        toAdd = toAdd.concat(timeSlot.getString("startTime"));
+                        toAdd = toAdd.concat(timeSlot.getString("startTime").substring(0,10));
+                        toAdd = toAdd.concat(" " + timeSlot.getString("startTime").substring(11,timeSlot.getString("startTime").length()-3));
+                        viewAppointmentInfo=timeSlot.getString("startTime").substring(0,10) + " " + timeSlot.getString("startTime").substring(11,timeSlot.getString("startTime").length()-3);
+                        viewAppointmentInfo+=")"+Service +"(";
+                        viewAppointmentInfo+=Status+">";
+                        appointmentInfosList.add(viewAppointmentInfo);
+                        appIds.add(response.getJSONObject(i).getString("id"));
+                        //time type mech status
                         appointments.add(toAdd);
+
+
                     } catch (JSONException e) {
                         error += e.getMessage();
                     }
@@ -748,12 +764,35 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        String divide[] = listView.getItemAtPosition(i).toString().split(delims);
-                        String select = divide[0];
-                        Toast.makeText(homePage.this, "you have selected appointment id: " + divide[0], duration).show();
-                        Intent intent = new Intent(homePage.this, ViewAppointments.class);
-                        intent.putExtra("select", select);
-                        startActivity(intent);
+                        selectedAppointmentInfos = appointmentInfosList.get(i-1);
+                        HttpUtils.get("appointment/" + appIds.get(i-1), new RequestParams(), new JsonHttpResponseHandler() {
+
+                            @Override
+                            public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+                            {
+                                try {
+                                    selectedMech="";
+                                    JSONArray mechanics= response.getJSONArray("mechanics");
+                                    String mechanicId = mechanics.getJSONObject(0).getString("id");
+                                    HttpUtils.get("mechanic/" + mechanicId, new RequestParams(), new JsonHttpResponseHandler() {
+                                        @Override
+                                        public void onSuccess(int statusCode, Header[] headers, JSONObject response)
+                                        {
+                                            try {
+                                                selectedMech = response.getString("name");
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+
+                                    });
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        Toast.makeText(homePage.this, "The " + ordinal(i) + " appointment item is selected", duration).show();
+                        openDialog();
                     }
                 });
 
@@ -769,6 +808,28 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
             }
         });
     }
+
+    public static String ordinal(int i) {
+        String[] suffixes = new String[] { "th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th" };
+        switch (i % 100) {
+            case 11:
+            case 12:
+            case 13:
+                return i + "th";
+            default:
+                return i + suffixes[i % 10];
+        }
+    }
+
+    public void openDialog() {
+        ViewAppointmentDialog viewAppointmentDialog = new ViewAppointmentDialog();
+        viewAppointmentDialog.show(getSupportFragmentManager(), "view appointment popup dialog");
+    }
+
+    public static String displayAppInfo(){
+        return selectedAppointmentInfos+selectedMech;
+    }
+
 
     /*retreive appointment*/
     private class StableArrayAdapter extends ArrayAdapter<String> {
@@ -794,6 +855,7 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
         }
 
     }
+
 
     ///////////MAKE PAYMENT///////
     public void makePayment(View v) {
@@ -898,6 +960,7 @@ public class homePage extends AppCompatActivity implements PopupMenu.OnMenuItemC
                     editProfileIsVisible = false;
                     homePageIsVisible = false;
                 }
+setInfo();
             }
         };
 

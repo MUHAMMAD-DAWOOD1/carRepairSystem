@@ -29,8 +29,7 @@
         android:id="@+id/WinterTiresInput"
         android:layout_width="match_parent"
         android:inputType="text"
-        android:layout_height="wrap_content" >
-    </EditText>
+        android:layout_height="wrap_content" />
     <requestFocus />
 
 
@@ -40,13 +39,26 @@
         android:text="Number of Kilometers"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+
     <EditText
         android:id="@+id/NumberofKilometersInput"
         android:layout_width="match_parent"
         android:inputType="text"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" />
         <requestFocus />
 
-    </EditText>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Notes"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/Notes"
+        android:layout_width="match_parent"
+        android:inputType="text"
+        android:layout_height="wrap_content" />
+        <requestFocus />
+
 
 </LinearLayout>

@@ -2,17 +2,16 @@ package ca.mcgill.ecse321.repairsystem;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -60,13 +59,17 @@ public class SignUp extends AppCompatActivity {
                 final EditText debit = (EditText) findViewById(R.id.debit);
 
                 String request = "";
-                request = request.concat(name.getText().toString());
+                request = request.concat(name.getText().toString().substring(0,name.getText().toString().indexOf(" ")));
+                request = request.concat(name.getText().toString().substring(name.getText().toString().indexOf(" ")+1,(name.getText().toString().length() )));
                 request =  request.concat("?password="+password.getText().toString());
                 request =  request.concat("&phone="+phone.getText().toString());
                 request =  request.concat("&email="+email.getText().toString());
                 request =  request.concat("&credit="+credit.getText().toString());
                 request = request.concat("&debit="+debit.getText().toString());
-                request = request.concat("&address="+address.getText().toString());
+
+
+                request = request.concat("&address="+address.getText().toString().substring(0,address.getText().toString().indexOf(" ")));
+                request = request.concat(address.getText().toString().substring(address.getText().toString().indexOf(" "),address.getText().toString().indexOf(" ", 1)));
 
                 HttpUtils.post("customer/" + request, new RequestParams(), new JsonHttpResponseHandler() {
                     @Override

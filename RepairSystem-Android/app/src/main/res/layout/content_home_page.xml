@@ -20,7 +20,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayoutHome"
-            android:layout_width="0dp"
+            android:layout_width="350dp"
             android:layout_height="0dp"
             android:gravity="top"
             android:orientation="vertical"
@@ -35,7 +35,11 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="My Appointments" />
+                android:text="My Appointments"
+                android:textColor="@color/purple_700"
+                android:textStyle="bold"
+                android:textSize="30sp"
+                />
 
             <ListView
                 android:id="@+id/appointmentListHome"
@@ -65,7 +69,7 @@
             android:layout_height="75dp"
             android:backgroundTint="@color/purple_500"
             android:text="Pay"
-            android:textSize="12dp"
+            android:textSize="11dp"
             android:onClick="toPayment"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarHome"
             app:layout_constraintEnd_toStartOf="@+id/logoutHome"
@@ -80,7 +84,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toBook"
             android:text="Book"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarHome"
             app:layout_constraintEnd_toStartOf="@+id/homeHome"
             app:layout_constraintStart_toEndOf="@+id/editProfileHome"
@@ -94,7 +98,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toEditProfile"
             android:text="Profile"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarHome"
             app:layout_constraintEnd_toStartOf="@+id/bookAppointmentHome"
             app:layout_constraintStart_toStartOf="@+id/toolbarHome"
@@ -107,7 +111,7 @@
             android:backgroundTint="@color/white"
             android:onClick="toEditProfile"
             android:text="Home"
-            android:textSize="12dp"
+            android:textSize="11dp"
             android:textColor="#4D00EA"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarHome"
             app:layout_constraintEnd_toStartOf="@+id/paymentHome"
@@ -122,7 +126,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="bye"
             android:text="logout"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarHome"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/paymentHome"
@@ -173,18 +177,20 @@
             app:layout_constraintTop_toBottomOf="@id/et_date"
             tools:ignore="MissingConstraints" />
 
+
         <Button
             android:id="@+id/addTimeSlot"
+            android:backgroundTint="@android:color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Confirm Schedule"
+            android:stateListAnimator="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_timer2"
-            app:layout_constraintVertical_bias="0.429" />
+            app:layout_constraintVertical_bias="0.329" />
 
         <Button
             android:id="@+id/selectServiceBtn"
@@ -250,19 +256,22 @@
             app:srcCompat="@android:drawable/ic_input_add"
             tools:ignore="ExtraText,MissingConstraints" />
 
+
+
         <Button
             android:id="@+id/bookAppBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:backgroundTint="@color/purple_700"
+            android:backgroundTint="#ffc34d"
             android:text="Book Appointment"
             app:layout_constraintBottom_toTopOf="@id/toolbarBook"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/selectCarBtn" />
 
-<!-- book app ends here-->
+
+        <!-- book app ends here-->
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbarBook"
             android:layout_width="match_parent"
@@ -282,7 +291,7 @@
             android:layout_height="75dp"
             android:backgroundTint="@color/purple_500"
             android:text="Pay"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarBook"
             app:layout_constraintEnd_toStartOf="@+id/logoutBook"
             app:layout_constraintStart_toEndOf="@+id/homeBook"
@@ -296,7 +305,7 @@
             android:backgroundTint="@color/white"
             android:onClick="toBook"
             android:text="Book"
-            android:textSize="12dp"
+            android:textSize="11dp"
             android:textColor="#4D00EA"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarBook"
             app:layout_constraintEnd_toStartOf="@+id/homeBook"
@@ -311,6 +320,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toEditProfile"
             android:text="Profile"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarBook"
             app:layout_constraintEnd_toStartOf="@+id/bookAppointmentBook"
             app:layout_constraintStart_toStartOf="@+id/toolbarBook"
@@ -323,7 +333,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toEditProfile"
             android:text="Home"
-            android:textSize="12dp"
+            android:textSize="11dp"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarBook"
             app:layout_constraintEnd_toStartOf="@+id/paymentBook"
@@ -338,7 +348,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="bye"
             android:text="logout"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarBook"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/paymentBook"
@@ -360,7 +370,7 @@
 
         <LinearLayout
             android:id="@+id/linearLayoutPay"
-            android:layout_width="0dp"
+            android:layout_width="350dp"
             android:layout_height="0dp"
             android:gravity="top"
             android:orientation="vertical"
@@ -373,13 +383,25 @@
                 android:id="@+id/billingHeader"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:text="Billing Information"
-                android:textColor="?attr/colorPrimary"
+                android:textColor="@color/purple_700"
+                android:textStyle="bold"
                 android:textSize="30sp" />
 
             <EditText
-                android:id="@+id/email"
+                android:id="@+id/payment_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autofillHints=""
+                android:hint="Name"
+                android:inputType="textEmailAddress"
+                />
+
+
+            <EditText
+                android:id="@+id/payment_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -389,7 +411,7 @@
                 />
 
             <EditText
-                android:id="@+id/address"
+                android:id="@+id/payment_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -398,7 +420,7 @@
                 android:inputType="textPostalAddress" />
 
             <EditText
-                android:id="@+id/credit"
+                android:id="@+id/payment_credit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -407,7 +429,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/debit"
+                android:id="@+id/payment_debit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -416,7 +438,7 @@
                 android:inputType="text" />
 
             <EditText
-                android:id="@+id/amount"
+                android:id="@+id/payment_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -438,6 +460,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
+                android:backgroundTint="#ffc34d"
                 android:text="@string/makePayment_button"
                 android:onClick="makePayment" />
 
@@ -470,7 +493,7 @@
             android:layout_height="75dp"
             android:backgroundTint="@color/white"
             android:text="Pay"
-            android:textSize="12dp"
+            android:textSize="11dp"
             android:textColor="#4D00EA"
             android:onClick="toPayment"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarPay"
@@ -486,7 +509,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toBook"
             android:text="Book"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarPay"
             app:layout_constraintEnd_toStartOf="@+id/homePay"
             app:layout_constraintStart_toEndOf="@+id/editProfilePay"
@@ -500,7 +523,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toEditProfile"
             android:text="Profile"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarPay"
             app:layout_constraintEnd_toStartOf="@+id/bookAppointmentPay"
             app:layout_constraintStart_toStartOf="@+id/toolbarPay"
@@ -513,7 +536,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toEditProfile"
             android:text="Home"
-            android:textSize="12dp"
+            android:textSize="11dp"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarPay"
             app:layout_constraintEnd_toStartOf="@+id/paymentPay"
@@ -528,7 +551,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="bye"
             android:text="logout"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarPay"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/paymentPay"
@@ -667,7 +690,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:inputType="textWebEmailAddress"
+                    android:inputType="textPassword"
                     android:text="@string/credit" />
 
                 <TextView
@@ -676,7 +699,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:text="@string/debit"
+                    android:text="Debit"
                     android:textAlignment="center" />
 
                 <EditText
@@ -684,7 +707,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:inputType="textWebEmailAddress"
+                    android:inputType="textPassword"
                     android:text="@string/debit" />
 
 
@@ -694,6 +717,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:onClick="updateProfile"
+                    android:backgroundTint="#ffc34d"
                     android:text="Update Profile" />
 
                 <TextView
@@ -724,7 +748,7 @@
             android:layout_height="75dp"
             android:backgroundTint="@color/purple_500"
             android:text="Pay"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarEdit"
             app:layout_constraintEnd_toStartOf="@+id/logoutEdit"
             app:layout_constraintStart_toEndOf="@+id/homeEdit"
@@ -738,7 +762,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toBook"
             android:text="Book"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarEdit"
             app:layout_constraintEnd_toStartOf="@+id/homeEdit"
             app:layout_constraintStart_toEndOf="@+id/editProfileEdit"
@@ -752,7 +776,7 @@
             android:backgroundTint="@color/white"
             android:onClick="toEditProfile"
             android:text="Profile"
-            android:textSize="12dp"
+            android:textSize="11dp"
             android:textColor="#4D00EA"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarEdit"
             app:layout_constraintEnd_toStartOf="@+id/bookAppointmentEdit"
@@ -766,7 +790,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="toEditProfile"
             android:text="Home"
-            android:textSize="12dp"
+            android:textSize="11dp"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarEdit"
             app:layout_constraintEnd_toStartOf="@+id/paymentEdit"
@@ -781,7 +805,7 @@
             android:backgroundTint="@color/purple_500"
             android:onClick="bye"
             android:text="logout"
-            android:textSize="12dp"
+            android:textSize="11dp"
             app:layout_constraintBottom_toBottomOf="@+id/toolbarEdit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/paymentEdit"

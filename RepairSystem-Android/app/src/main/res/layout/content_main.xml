@@ -9,15 +9,29 @@
     <LinearLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="277dp"
-        android:layout_marginTop="460dp"
+        android:layout_marginTop="100dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="600dp">
 
 
+        <ImageView
+            android:id="@+id/startLogIn3"
+            android:layout_width="372dp"
+            android:layout_height="373dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center"
+            android:padding="50dp"
+            android:src="@drawable/landing_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="300dp" />
         <Button
             android:id="@+id/startLogIn"
             android:layout_width="wrap_content"
@@ -26,7 +40,8 @@
             android:onClick="goLogIn"
             android:text="@string/login"
             tools:layout_editor_absoluteX="157dp"
-            tools:layout_editor_absoluteY="306dp" />
+            tools:layout_editor_absoluteY="500dp" />
+
 
         <Button
             android:id="@+id/startSignUp"
@@ -36,8 +51,10 @@
             android:onClick="goSignUp"
             android:text="@string/signup"
             tools:layout_editor_absoluteX="158dp"
-            tools:layout_editor_absoluteY="402dp" />
+            tools:layout_editor_absoluteY="600dp" />
     </LinearLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
