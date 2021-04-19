@@ -109,14 +109,6 @@ The customer can edit their inforamtion. This change is also shown in admin and 
 The customer can make payment. By default, each section is filled up with customer given information but the customer also can change this. They can also select the payment method (credit or debit)
 ![mechanic edit profile Page](demo/android/android_customer_make_payment.gif)
 
-
-### Team Members
-- Annabelle Dion
-- Sia Ham
-- Thomas Jarvis
-- Norman Kong
-- Catherine Van Gheluwe 
-
 ## Documentation
  - [Requirement Model](https://github.com/McGill-ECSE321-Winter2021/project-group-07/wiki/Requirements-Model-(requirements-&-use-case))
  - [Domain Model](https://github.com/McGill-ECSE321-Winter2021/project-group-07/wiki/Domain-Model-Iterations)
@@ -125,4 +117,6 @@ The customer can make payment. By default, each section is filled up with custom
  - [Architecture Model - Block Diagram](https://github.com/McGill-ECSE321-Winter2021/project-group-07/wiki/Architecture-Model)
  - [Figma](https://www.figma.com/file/WGQveChTZA6qFVNFDvxh8g/Untitled?node-id=0%3A1)
  - [User Documentation](https://github.com/McGill-ECSE321-Winter2021/project-group-07/wiki/User-Documentation)
+
+
 
