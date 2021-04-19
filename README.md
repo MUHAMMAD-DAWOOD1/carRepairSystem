@@ -5,7 +5,7 @@ have access and book a variety of services (towing, oil change, tire changes, re
 
 # Web Application
 ### Landing Page
-![Landing Page](demo/web/landing.gif)
+![Landing Page](demo/web/landing_page.gif)
 
 ### Sign Up Page 
 - Customer can sign up on this page. Mechanic’s account can only be created by admin.
@@ -28,7 +28,7 @@ In this page admin can do the followings
 - Delete mechanic
 - Search mechanic by name
 
-![Admin mechanic Page](demo/web/admin_mechacnis.gif)
+![Admin mechanic Page](demo/web/admin_mechanics.gif)
 
 ### Customer Management Page
 In this page admin can do the followings
@@ -40,15 +40,38 @@ In this page admin can do the followings
 - Search customer by name
 - Delete customer
 
-![Admin mechanic Page](demo/web/admin_customer.gif)
+![Admin mechanic Page](demo/web/admin_customers.gif)
 
 ## User as Customer 
 ### Customer Dashboard Page
-User as Mechanic
+Once a customer logs in, the customer is navigated to customer dashboard page.
+They can do the followings:
+- View upcoming appointments
+- Delete an appointment
+![customer dashboard Page](demo/web/customer_dashboard.gif)
+### Edit Profile Page
+In this page customer can edit their information
+![customer edit profile Page](demo/web/customer_edit_profile.gif)
+### Book Appointment Page
+In this page customer can do the followings:
+- select date
+- select time
+- select service
+- add a car
+- select car
+- select mechanic
+- add notes
+- book appointment (this change is reflected on both customer and admin dashboard page)
+![customer edit profile Page](demo/web/customer_book_appointment.gif)
+### Make Payment Page
+In this page customer information is automatically filled up in each section and the customer can make payment
+![customer edit profile Page](demo/web/customer_payment.gif)
+
+### User as Mechanic
 
 
 
-Mobile Application
+# Mobile Application
 
 
 
